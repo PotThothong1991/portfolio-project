@@ -100,7 +100,7 @@ const Home = () => {
           <div className="relative pl-8 border-l-2 border-slate-100">
             <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1.5 shadow-[0_0_15px_rgba(37,99,235,0.4)] ring-4 ring-white"></div>
             <h4 className="text-2xl font-bold text-slate-900 leading-tight">Delta Electronics (Thailand)</h4>
-            <p className="text-blue-600 font-bold text-xs uppercase tracking-wider mt-1 mb-6">Engineering Programmer <span className="text-slate-300 mx-2">|</span> Mar 2023 - Present</p>
+            <p className="text-blue-600 font-bold text-xs uppercase tracking-wider mt-1 mb-6">Senior Full-stack Developer & Data Engineer <span className="text-slate-300 mx-2">|</span> Mar 2023 - Present</p>
             
             <ul className="space-y-4 text-slate-600 text-[13px] leading-relaxed">
               <li className="group"><strong className="text-slate-900 group-hover:text-blue-600 transition-colors">Full-Stack Architecture:</strong> Architected and deployed scalable web applications using React.js for intuitive frontends and Node.js (Express) for robust backend services.</li>
