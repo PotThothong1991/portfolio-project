@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// ตรวจสอบชื่อไฟล์ Pot.jpg ให้ตรงกับในโฟลเดอร์จริง
 import profileImg from './Images/Home/Pot.jpg';
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { HyperText } from "@/components/magicui/hyper-text";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Pot Thothong | Senior Full-stack Developer | Digital Resume (Built with React & Tailwind & Magic UI)";
+  }, []);
   return (
     <div className="bg-white min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900">
       {/* Header Section */}
