@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useState } from 'react'; // 1. เพิ่ม useState ตรงนี้
 import { Routes, Route, Link } from 'react-router-dom';
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
+
 // 2. ตรวจสอบชื่อโฟลเดอร์ให้ตรงกับที่มีอยู่จริง (Pages หรือ pages)
 const Home = lazy(() => import('./Pages/Home'));
 const Projects = lazy(() => import('./Pages/Projects'));
@@ -14,7 +14,7 @@ function App() {
       {/* 2. ส่วนเมนูนำทาง (ใช้ Tailwind v4) */}
       <nav className="flex justify-center items-center space-x-6 p-5 bg-slate-900 text-white shadow-md relative z-50">
         <Link to="/" className="hover:text-blue-400 transition-colors">Portfolio</Link>
-        <AnimatedThemeToggler />
+       
         {/* --- Dropdown Container --- */}
         {/* <div 
           className="relative"
