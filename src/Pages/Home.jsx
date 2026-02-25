@@ -38,12 +38,12 @@ const Home = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 mt-10 justify-center md:justify-start font-bold">
-                <Link to="/projects" className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-3.5 rounded-xl transition-all shadow-lg shadow-blue-900/20 hover:-translate-y-1 active:scale-95">
+                {/* <Link to="/projects" className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-3.5 rounded-xl transition-all shadow-lg shadow-blue-900/20 hover:-translate-y-1 active:scale-95">
                   View Projects
-                </Link>
-                <Link to="/contact" className="bg-slate-800 hover:bg-slate-700 text-white px-10 py-3.5 rounded-xl transition-all border border-slate-700 hover:-translate-y-1 active:scale-95">
+                </Link> */}
+                {/* <Link to="/contact" className="bg-slate-800 hover:bg-slate-700 text-white px-10 py-3.5 rounded-xl transition-all border border-slate-700 hover:-translate-y-1 active:scale-95">
                   Contact
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
