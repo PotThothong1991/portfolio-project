@@ -4,6 +4,8 @@ import profileImg from './Images/Home/Pot.jpg';
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { HyperText } from "@/components/magicui/hyper-text";
+import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
+import { TextAnimate } from "@/components/ui/text-animate"
 
 const Home = () => {
 
@@ -41,7 +43,7 @@ const Home = () => {
                   duration={6}
                   delay={3}
                   size={400}
-                 className="from-transparent via-blue-500 to-transparent"
+                  className="from-transparent via-blue-500 to-transparent"
                 />
               </div>
             </div>
@@ -49,7 +51,7 @@ const Home = () => {
             {/* Name and Actions */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
-                 POT <AuroraText colors={["#0011ff", "#38bdf8"]} > THOTHONG</AuroraText>
+                POT <AuroraText speed={1} colors={["#0011ff", "#38bdf8"]} > THOTHONG</AuroraText>
               </h1>
               <p className="text-xl md:text-2xl text-slate-400 mt-3 font-medium tracking-wide">
                 Senior Full-stack Developer <span className="text-slate-600 mx-2">|</span> <span className="text-blue-400/80">IT/OT Specialist</span>
@@ -74,7 +76,7 @@ const Home = () => {
         {/* Sidebar: Skills & Contact Info */}
         <div className="md:col-span-1 space-y-5">
           <div className="group">
-            <HyperText className="text-lg text-blue-600 uppercase  mb-1" animateOnHover={false}>Contact Details</HyperText>
+            <HyperText className="text-lg text-blue-600 uppercase  mb-1" animateOnHover={true}>Contact Details</HyperText>
             <div className="space-y-1 text-slate-600 text-sm">
               <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
                 <span className="text-base text-slate-400">📍</span> Samut Prakan, Thailand
@@ -88,8 +90,8 @@ const Home = () => {
             </div>
           </div>
 
-          <div>
-             <HyperText className="text-lg  text-blue-600 uppercase mb-1" animateOnHover={false}>Expertise</HyperText>
+          <div className=' border-t '>
+            <HyperText className="text-lg  text-blue-600 uppercase mb-1" animateOnHover={true}>Expertise</HyperText>
             <div className="flex flex-wrap gap-2">
               {[
                 'React.js', 'Node.js', 'MSSQL', 'Node-RED',
@@ -102,8 +104,8 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-slate-100">
-            <HyperText className="text-lg  text-blue-600 uppercase  mb-1" animateOnHover={false}>About Me</HyperText>
+          <div className="border-t border-slate-100">
+            <HyperText className="text-lg  text-blue-600 uppercase  mb-1" animateOnHover={true}>About Me</HyperText>
             <p className="text-slate-600 text-sm leading-relaxed antialiased">
               Senior Full-stack Developer specializing in building high-performance web applications with a unique advantage in <span className="text-slate-900 font-semibold">Industrial Digitalization (IT/OT)</span>.
             </p>
@@ -111,21 +113,22 @@ const Home = () => {
         </div>
 
         {/* Experience Timeline */}
-        <div className="md:col-span-2 space-y-16">
+        <div className="md:col-span-2 space-y-10">
           {/* <h3 className="text-xs font-black text-blue-600 uppercase tracking-[0.2em] mb-8 font-mono">Professional Experience</h3> */}
-              <HyperText className="text-lg  text-blue-600 uppercase  mb-1" animateOnHover={false}>Professional Experience</HyperText>
-            
+          <HyperText className="text-lg  text-blue-600 uppercase  mb-1" animateOnHover={true}>Professional Experience</HyperText>
+
           {/* Delta Electronics Section */}
           <div className="relative pl-8 border-l-2 border-slate-100">
             <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1.5 shadow-[0_0_15px_rgba(37,99,235,0.4)] ring-4 ring-white"></div>
             <h4 className="text-2xl font-bold text-slate-900 leading-tight">Delta Electronics (Thailand)</h4>
+            {/* <AnimatedShinyText className="text-2xl font-bold !text-black dark:!text-white"> <span>Delta Electronics (Thailand)</span></AnimatedShinyText> */}
             <p className="text-blue-600 font-bold text-xs uppercase tracking-wider mt-1 mb-6">Senior Full-stack Developer & Data Engineer <span className="text-slate-300 mx-2">|</span> Mar 2023 - Present</p>
-
             <ul className="space-y-4 text-slate-600 text-[13px] leading-relaxed">
               <li className="group"><strong className="text-slate-900 group-hover:text-blue-600 transition-colors">Full-Stack Architecture:</strong> Architected and deployed scalable web applications using React.js for intuitive frontends and Node.js (Express) for robust backend services.</li>
               <li className="group"><strong className="text-slate-900 group-hover:text-blue-600 transition-colors">Data Pipeline & Automation:</strong> Leveraged Node-RED and Python to automate mission-critical reports, email notifications, and real-time data ingestion.</li>
               <li className="group"><strong className="text-slate-900 group-hover:text-blue-600 transition-colors">Backend & DB Optimization:</strong> Developed custom data collection tools in VB.NET and optimized MSSQL Stored Procedures to handle large production datasets.</li>
             </ul>
+
           </div>
 
           {/* MAC Control Section */}

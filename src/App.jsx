@@ -13,8 +13,7 @@ function App() {
     <div className="min-h-screen w-full bg-slate-50">
       {/* 2. ส่วนเมนูนำทาง (ใช้ Tailwind v4) */}
       <nav className="flex justify-center items-center space-x-6 p-5 bg-slate-900 text-white shadow-md relative z-50">
-        <Link to="/" className="hover:text-blue-400 transition-colors">Portfolio</Link>
-       
+        <Link to="/" className="hover:text-blue-400 transition-colors">Portfolio</Link>       
         {/* --- Dropdown Container --- */}
         {/* <div 
           className="relative"
@@ -38,7 +37,6 @@ function App() {
           )}
         </div> */}
         {/* --- End Dropdown --- */}
-
         {/* <Link to="/contact" className="hover:text-blue-400 transition-colors">Contact</Link> */}
       </nav>
 
