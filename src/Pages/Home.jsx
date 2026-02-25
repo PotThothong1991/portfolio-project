@@ -15,6 +15,9 @@ import { SiNodered, SiTailwindcss, SiDotnet } from "react-icons/si";
 import { TbSettingsAutomation } from "react-icons/tb";
 import { HiSparkles } from "react-icons/hi";
 import { TbSql, TbNetwork } from "react-icons/tb";
+import { FaLocationDot, FaEnvelope, FaLine } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
+import { SlSocialLinkedin } from "react-icons/sl";
 // --- Configuration: 2 L ---
 const content = {
   en: {
@@ -219,14 +222,37 @@ const Home = () => {
             <div className="group">
               <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.contactTitle}</HyperText>
               <div className="space-y-1 text-slate-600 text-sm">
+                {/* Location */}
                 <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
-                  <span className="text-base text-slate-400">📍</span> {t.location}
+                  <FaLocationDot className="text-lg text-red-500" /> {t.location}
                 </p>
+
+                {/* Phone */}
                 <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
-                  <span className="text-base text-slate-400">📞</span> 091-776-1205
+                  <FaPhoneAlt className="text-lg text-blue-500" /> 091-776-1205
                 </p>
+
+                {/* Email */}
                 <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
-                  <span className="text-base text-slate-400">📧</span> pot.thothong@gmail.com
+                  <FaEnvelope className="text-lg text-orange-500" /> pot.thothong@gmail.com
+                </p>
+
+                {/* Line */}
+                <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
+                  <FaLine className="text-xl text-[#00B900]" /> lainee58
+                </p>
+
+                {/* LinkedIn */}
+                <p className="flex items-center gap-3 hover:text-blue-600 transition-colors">
+                  <SlSocialLinkedin className="text-xl text-[#0A66C2]" />
+                  <a
+                    href="https://www.linkedin.com/in/pot-thothong-7765b4289"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline font-medium"
+                  >
+                    LinkedIn Profile
+                  </a>
                 </p>
               </div>
             </div>
