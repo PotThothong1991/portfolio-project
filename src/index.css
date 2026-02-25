@@ -162,3 +162,32 @@ body {
     animation: none;
     mix-blend-mode: normal;
 }
+
+@media print {
+  /* บังคับให้พิมพ์สีพื้นหลังและรูปภาพ */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* ตั้งค่าหน้ากระดาษ A4 */
+  @page {
+    size: A4;
+    margin: 0; /* เราจะไปคุม Padding ในตัว Component แทน */
+  }
+
+  /* ป้องกันเนื้อหาขาด (Content Splitting) */
+  h1, h2, h3, h4, .group {
+    page-break-after: avoid;
+  }
+  
+  /* จัดการจุดตัดหน้ากระดาษ (ให้ขึ้นหน้าใหม่ในจุดที่เหมาะสม) */
+  .break-before {
+    page-break-before: always;
+  }
+
+  /* ซ่อนส่วนที่ไม่เกี่ยวข้อง */
+  .fixed, button, nav {
+    display: none !important;
+  }
+}
