@@ -284,9 +284,7 @@ const Home = () => {
             </div>
             {/* Education Section */}
             <div className="border-t border-slate-100 pt-5">
-              <HyperText className="text-lg text-blue-600 uppercase mb-2" animateOnHover={true}>
-                {t.educationTitle}
-              </HyperText>
+              <HyperText className="text-lg text-blue-600 uppercase mb-2" animateOnHover={true} text={t.educationTitle}/>
               <div className="space-y-1 text-slate-600 text-[13px] leading-snug">
                 <p className="font-bold text-slate-900">{t.education.degree}</p>
                 <p className="text-blue-600/80 font-medium">{t.education.university}</p>
