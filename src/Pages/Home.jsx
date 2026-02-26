@@ -220,7 +220,7 @@ const Home = () => {
           {/* Sidebar: Skills & Contact Info */}
           <div className="md:col-span-1 space-y-5">
             <div className="group">
-              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} text={t.contactTitle}/>
+              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} characterSet={t.contactTitle}/>
               <div className="space-y-1 text-slate-600 text-sm">
                 {/* Location */}
                 <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
@@ -258,7 +258,7 @@ const Home = () => {
             </div>
 
             <div className='border-t pt-5'>
-              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} text={t.expertiseTitle}/>
+              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} characterSet={t.expertiseTitle}/>
               <div className="flex flex-wrap gap-2">
                 {content.skillList.map(skill => (
                   <span
@@ -277,14 +277,14 @@ const Home = () => {
             </div>
 
             <div className="border-t border-slate-100 pt-5">
-              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} text={t.aboutTitle}/>
+              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} characterSet={t.aboutTitle}/>
               <p className="text-slate-600 text-sm leading-relaxed antialiased">
                 {t.aboutDesc}
               </p>
             </div>
             {/* Education Section */}
             <div className="border-t border-slate-100 pt-5">
-              <HyperText className="text-lg text-blue-600 uppercase mb-2" animateOnHover={true} text={t.educationTitle}/>
+              <HyperText className="text-lg text-blue-600 uppercase mb-2" animateOnHover={true} characterSet={t.educationTitle}/>
               <div className="space-y-1 text-slate-600 text-[13px] leading-snug">
                 <p className="font-bold text-slate-900">{t.education.degree}</p>
                 <p className="text-blue-600/80 font-medium">{t.education.university}</p>
@@ -295,7 +295,7 @@ const Home = () => {
 
           {/* Experience Timeline */}
           <div className="md:col-span-2 space-y-10">
-            <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} text={t.experienceTitle}/>
+            <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} characterSet={t.experienceTitle}/>
 
             {/* Delta Electronics Section */}
             <div className="relative pl-8 border-l-2 border-slate-100">
