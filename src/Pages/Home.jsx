@@ -7,7 +7,7 @@ import { AuroraText } from "@/components/magicui/aurora-text";
 import { HyperText } from "@/components/magicui/hyper-text";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { TextAnimate } from "@/components/ui/text-animate"
-
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 
 //Icon
 import { FaReact, FaNodeJs, FaPython, FaCode, FaFileDownload } from "react-icons/fa";
@@ -18,6 +18,7 @@ import { TbSql, TbNetwork } from "react-icons/tb";
 import { FaLocationDot, FaEnvelope, FaLine } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { SlSocialLinkedin } from "react-icons/sl";
+
 // --- Configuration: 2 L ---
 const content = {
   en: {
@@ -77,12 +78,12 @@ const content = {
     browserTitle: "พจน์ โพธิ์ทอง | Senior Full-stack Developer | Digital Resume",
     role: "Senior Full-stack Developer",
     specialist: "IT/OT Specialist",
-    contactTitle: "Contact Details",
+    contactTitle: "ข้อมูลการติดต่อ",
     location: "สมุทรปราการ, ประเทศไทย",
-    expertiseTitle: "Expertise",
-    aboutTitle: "About Me",
+    expertiseTitle: "ความเชี่ยวชาญ",
+    aboutTitle: "เกี่ยวกับฉัน",
     aboutDesc: "Senior Full-stack Developer ที่มีความเชี่ยวชาญในการสร้างเว็บแอปพลิเคชันประสิทธิภาพสูง พร้อมจุดแข็งด้านการปรับเปลี่ยนอุตสาหกรรมสู่ระบบดิจิทัล (IT/OT)",
-    experienceTitle: "Professional Experience",
+    experienceTitle: "ประสบการณ์การทำงาน",
     delta: {
       company: "Delta Electronics (Thailand)",
       role: "Senior Full-stack Developer & Data Engineer",
@@ -113,7 +114,7 @@ const content = {
         { label: "System Integration:", text: "ดำเนินการติดตั้ง อัปเกรด และจัดระเบียบระบบ Server รวมถึงโครงสร้างพื้นฐานด้านเครือข่ายแบบครบวงจร" }
       ]
     },
-    educationTitle: "Education",
+    educationTitle: "การศึกษา",
     education: {
       degree: "วิศวกรรมศาสตรบัณฑิต (วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม)",
       major: "วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม",
@@ -141,21 +142,23 @@ const content = {
 };
 
 const Home = () => {
-  const [lang, setLang] = useState('en'); // 'en' หรือ 'th'
+  const [lang, setLang] = useState('en'); 
   const t = content[lang];
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     contentRef: componentRef,
     documentTitle: t.browserTitle,
-  });;
+  });
+
   useEffect(() => {
     document.title = t.browserTitle;
   }, [lang, t.browserTitle]);
 
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900">
+    // เปลี่ยนจาก bg-background (เดิม) เป็น bg-background text-foreground เพื่อคุมทั้งหน้า
+    <div className="bg-background text-foreground min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900 transition-colors duration-300">
 
-      <div className="fixed top-6 right-6 z-50 flex bg-slate-800/80 backdrop-blur-md p-1 rounded-xl border border-slate-700 shadow-2xl">
+      <div className="fixed top-6 right-6 z-50 flex items-center gap-2 bg-slate-800/80 backdrop-blur-md p-1.5 rounded-xl border border-slate-700 shadow-2xl">
         <button
           onClick={() => setLang('en')}
           className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${lang === 'en' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
@@ -175,11 +178,17 @@ const Home = () => {
           <FaFileDownload className="text-lg" />
           <span>PDF</span>
         </button>
+        {/* คั่นเส้นเล็กน้อยเพื่อให้ดูเป็นระเบียบ */}
+        <div className="w-px h-6 bg-slate-700 mx-1"></div>
+        <AnimatedThemeToggler />
+        <div className="w-px h-6 bg-slate-700 mx-1"></div>
       </div>
-      <div ref={componentRef} className="bg-white print:w-[210mm] print:min-h-[297mm] print:mx-auto print:p-10">
-        {/* Header Section */}
+
+      {/* เปลี่ยนจาก bg-white เป็น bg-background และใส่ print:bg-white */}
+      <div ref={componentRef} className="bg-background text-foreground print:bg-white print:text-black print:w-[210mm] print:min-h-[297mm] print:mx-auto print:p-10 transition-colors duration-300">
+        
+        {/* Header Section (คงไว้เพราะสีเข้มอยู่แล้ว) */}
         <section className="relative py-20 px-6 bg-slate-900 text-white overflow-hidden">
-          {/* Background Mesh Decoration */}
           <div className="absolute inset-0 opacity-20 pointer-events-none">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px] -mr-48 -mt-48"></div>
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-600 rounded-full blur-[100px] -ml-20 -mb-20"></div>
@@ -187,7 +196,6 @@ const Home = () => {
 
           <div className="max-w-5xl mx-auto relative z-10">
             <div className="flex flex-col md:flex-row gap-10 items-center">
-              {/* Profile Image */}
               <div className="flex-shrink-0 group">
                 <div className="relative rounded-2xl">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
@@ -201,10 +209,9 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Name and Actions */}
               <div className="flex-1 text-center md:text-left">
                 <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
-                  {t.name}  <AuroraText speed={1} colors={["#0011ff", "#38bdf8"]} >  {t.surname}</AuroraText>
+                  {t.name} <AuroraText speed={1} colors={["#0011ff", "#38bdf8"]} > {t.surname}</AuroraText>
                 </h1>
                 <p className="text-xl md:text-2xl text-slate-400 mt-3 font-medium tracking-wide">
                   {t.role} <span className="text-slate-600 mx-2">|</span> <span className="text-blue-400/80">{t.specialist}</span>
@@ -217,127 +224,96 @@ const Home = () => {
         {/* Main Resume Content */}
         <section className="max-w-5xl mx-auto py-20 px-6 grid md:grid-cols-3 gap-16">
 
-          {/* Sidebar: Skills & Contact Info */}
           <div className="md:col-span-1 space-y-5">
             <div className="group">
+              {/* HyperText แบบคั่นกลางเหมือนเดิม */}
               <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.contactTitle}</HyperText>
-              <div className="space-y-1 text-slate-600 text-sm">
-                {/* Location */}
-                <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
-                  <FaLocationDot className="text-lg text-red-500" /> {t.location}
-                </p>
-
-                {/* Phone */}
-                <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
-                  <FaPhoneAlt className="text-lg text-blue-500" /> 091-776-1205
-                </p>
-
-                {/* Email */}
-                <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
-                  <FaEnvelope className="text-lg text-orange-500" /> pot.thothong@gmail.com
-                </p>
-
-                {/* Line */}
-                <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
-                  <FaLine className="text-xl text-[#00B900]" /> lainee58
-                </p>
-
-                {/* LinkedIn */}
-                <p className="flex items-center gap-3 hover:text-blue-600 transition-colors">
+              <div className="space-y-1 text-muted-foreground text-sm">
+                <p className="flex items-center gap-3"><FaLocationDot className="text-lg text-red-500" /> {t.location}</p>
+                <p className="flex items-center gap-3"><FaPhoneAlt className="text-lg text-blue-500" /> 091-776-1205</p>
+                <p className="flex items-center gap-3"><FaEnvelope className="text-lg text-orange-500" /> pot.thothong@gmail.com</p>
+                <p className="flex items-center gap-3"><FaLine className="text-xl text-[#00B900]" /> lainee58</p>
+                <p className="flex items-center gap-3">
                   <SlSocialLinkedin className="text-xl text-[#0A66C2]" />
-                  <a
-                    href="https://www.linkedin.com/in/pot-thothong-7765b4289"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline font-medium"
-                  >
-                    LinkedIn Profile
-                  </a>
+                  <a href="https://www.linkedin.com/..." target="_blank" rel="noopener noreferrer" className="hover:underline font-medium">LinkedIn Profile</a>
                 </p>
               </div>
             </div>
 
-            <div className='border-t pt-5'>
+            <div className='border-t border-border pt-5'>
               <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.expertiseTitle}</HyperText>
               <div className="flex flex-wrap gap-2">
                 {content.skillList.map(skill => (
                   <span
                     key={skill}
-                    className="group flex items-center gap-2 bg-slate-50 text-slate-700 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest border border-slate-100 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 transition-all cursor-default"
+                    className="group flex items-center gap-2 bg-secondary text-foreground px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest border border-border hover:border-blue-200 transition-all cursor-default"
                   >
-                    {/* ดึง Icon มาแสดง ถ้าไม่มีให้โชว์ Icon กลางๆ เช่น FaCode */}
                     <span className="text-sm transition-transform group-hover:scale-125 duration-300">
                       {content.iconMap[skill] || <FaCode />}
                     </span>
-
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="border-t border-slate-100 pt-5">
+            <div className="border-t border-border pt-5">
               <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.aboutTitle}</HyperText>
-              <p className="text-slate-600 text-sm leading-relaxed antialiased">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {t.aboutDesc}
               </p>
             </div>
-            {/* Education Section */}
-            <div className="border-t border-slate-100 pt-5">
-              <HyperText className="text-lg text-blue-600 uppercase mb-2" animateOnHover={true}>
-                {t.educationTitle}
-              </HyperText>
-              <div className="space-y-1 text-slate-600 text-[13px] leading-snug">
-                <p className="font-bold text-slate-900">{t.education.degree}</p>
+
+            <div className="border-t border-border pt-5">
+              <HyperText className="text-lg text-blue-600 uppercase mb-2" animateOnHover={true}>{t.educationTitle}</HyperText>
+              <div className="space-y-1 text-muted-foreground text-[13px] leading-snug">
+                <p className="font-bold text-foreground">{t.education.degree}</p>
                 <p className="text-blue-600/80 font-medium">{t.education.university}</p>
                 <p className="text-xs text-slate-400 mt-1">{t.education.period}</p>
               </div>
             </div>
           </div>
 
-          {/* Experience Timeline */}
           <div className="md:col-span-2 space-y-10">
             <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.experienceTitle}</HyperText>
 
-            {/* Delta Electronics Section */}
-            <div className="relative pl-8 border-l-2 border-slate-100">
-              <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1.5 shadow-[0_0_15px_rgba(37,99,235,0.4)] ring-4 ring-white"></div>
-              <h4 className="text-2xl font-bold text-slate-900 leading-tight">{t.delta.company}</h4>
-              <p className="text-blue-600 font-bold text-xs uppercase tracking-wider mt-1 mb-6">{t.delta.role} <span className="text-slate-300 mx-2">|</span> {t.delta.period}</p>
-              <ul className="space-y-4 text-slate-600 text-[13px] leading-relaxed">
+            {/* Delta Section */}
+            <div className="relative pl-8 border-l-2 border-border">
+              <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1.5 shadow-[0_0_15px_rgba(37,99,235,0.4)] ring-4 ring-background"></div>
+              <h4 className="text-2xl font-bold text-foreground leading-tight">{t.delta.company}</h4>
+              <p className="text-blue-600 font-bold text-xs uppercase tracking-wider mt-1 mb-6">{t.delta.role} <span className="text-border mx-2">|</span> {t.delta.period}</p>
+              <ul className="space-y-4 text-muted-foreground text-[13px] leading-relaxed">
                 {t.delta.tasks.map((task, idx) => (
                   <li key={idx} className="group">
-                    <strong className="text-slate-900 group-hover:text-blue-600 transition-colors">{task.label}</strong> {task.text}
+                    <strong className="text-foreground group-hover:text-blue-600 transition-colors">{task.label}</strong> {task.text}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* MAC Control Section */}
-            <div className="relative pl-8 border-l-2 border-slate-100">
-              <div className="absolute w-4 h-4 bg-slate-200 rounded-full -left-[9px] top-1.5 ring-4 ring-white"></div>
-              <h4 className="text-2xl font-bold text-slate-900 leading-tight">{t.mac.company}</h4>
-              <p className="text-slate-500 font-bold text-xs uppercase tracking-wider mt-1 mb-6">{t.mac.role} <span className="text-slate-300 mx-2">|</span> {t.mac.period}</p>
-              <ul className="space-y-4 text-slate-600 text-[13px] leading-relaxed">
+            {/* MAC Section */}
+            <div className="relative pl-8 border-l-2 border-border">
+              <div className="absolute w-4 h-4 bg-slate-200 dark:bg-slate-700 rounded-full -left-[9px] top-1.5 ring-4 ring-background"></div>
+              <h4 className="text-2xl font-bold text-foreground leading-tight">{t.mac.company}</h4>
+              <p className="text-muted-foreground font-bold text-xs uppercase tracking-wider mt-1 mb-6">{t.mac.role} <span className="text-border mx-2">|</span> {t.mac.period}</p>
+              <ul className="space-y-4 text-muted-foreground text-[13px] leading-relaxed">
                 {t.mac.tasks.map((task, idx) => (
                   <li key={idx} className="group">
-                    <strong className="text-slate-900 group-hover:text-blue-600 transition-colors">{task.label}</strong> {task.text}
+                    <strong className="text-foreground group-hover:text-blue-600 transition-colors">{task.label}</strong> {task.text}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Versat Solutions Section */}
-            <div className="relative pl-8 border-l-2 border-slate-100">
-              <div className="absolute w-4 h-4 bg-slate-100 rounded-full -left-[9px] top-1.5 ring-4 ring-white"></div>
-              <h4 className="text-2xl font-bold text-slate-900 leading-tight">{t.versat.company}</h4>
-              <p className="text-slate-500 font-bold text-xs uppercase tracking-wider mt-1 mb-6">
-                {t.versat.role} <span className="text-slate-300 mx-2">|</span> {t.versat.period}
-              </p>
-              <ul className="space-y-4 text-slate-600 text-[13px] leading-relaxed">
+            {/* Versat Section */}
+            <div className="relative pl-8 border-l-2 border-border">
+              <div className="absolute w-4 h-4 bg-slate-100 dark:bg-slate-800 rounded-full -left-[9px] top-1.5 ring-4 ring-background"></div>
+              <h4 className="text-2xl font-bold text-foreground leading-tight">{t.versat.company}</h4>
+              <p className="text-muted-foreground font-bold text-xs uppercase tracking-wider mt-1 mb-6">{t.versat.role} <span className="text-border mx-2">|</span> {t.versat.period}</p>
+              <ul className="space-y-4 text-muted-foreground text-[13px] leading-relaxed">
                 {t.versat.tasks.map((task, idx) => (
                   <li key={idx} className="group">
-                    <strong className="text-slate-900 group-hover:text-blue-600 transition-colors">{task.label}</strong> {task.text}
+                    <strong className="text-foreground group-hover:text-blue-600 transition-colors">{task.label}</strong> {task.text}
                   </li>
                 ))}
               </ul>
@@ -345,15 +321,13 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Footer Quote */}
-        <footer className="bg-slate-50 py-16 px-6 text-center border-t border-slate-100">
-          <p className="text-lg italic text-slate-400 max-w-2xl mx-auto font-serif">
+        <footer className="bg-secondary/30 py-16 px-6 text-center border-t border-border">
+          <p className="text-lg italic text-muted-foreground max-w-2xl mx-auto font-serif">
             "{t.footerQuote}"
           </p>
         </footer>
       </div>
     </div>
-
   );
 };
 
