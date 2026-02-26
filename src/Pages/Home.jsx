@@ -78,12 +78,12 @@ const content = {
     browserTitle: "พจน์ โพธิ์ทอง | Senior Full-stack Developer | Digital Resume",
     role: "Senior Full-stack Developer",
     specialist: "IT/OT Specialist",
-    contactTitle: "ข้อมูลการติดต่อ",
+    contactTitle: "Contact Details",
     location: "สมุทรปราการ, ประเทศไทย",
-    expertiseTitle: "ความเชี่ยวชาญ",
-    aboutTitle: "เกี่ยวกับฉัน",
+    expertiseTitle: "Expertise",
+    aboutTitle: "About Me",
     aboutDesc: "Senior Full-stack Developer ที่มีความเชี่ยวชาญในการสร้างเว็บแอปพลิเคชันประสิทธิภาพสูง พร้อมจุดแข็งด้านการปรับเปลี่ยนอุตสาหกรรมสู่ระบบดิจิทัล (IT/OT)",
-    experienceTitle: "ประสบการณ์การทำงาน",
+    experienceTitle: "Professional Experience",
     delta: {
       company: "Delta Electronics (Thailand)",
       role: "Senior Full-stack Developer & Data Engineer",
@@ -114,7 +114,7 @@ const content = {
         { label: "System Integration:", text: "ดำเนินการติดตั้ง อัปเกรด และจัดระเบียบระบบ Server รวมถึงโครงสร้างพื้นฐานด้านเครือข่ายแบบครบวงจร" }
       ]
     },
-    educationTitle: "การศึกษา",
+    educationTitle: "Education",
     education: {
       degree: "วิศวกรรมศาสตรบัณฑิต (วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม)",
       major: "วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม",
