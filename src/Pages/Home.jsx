@@ -220,7 +220,7 @@ const Home = () => {
           {/* Sidebar: Skills & Contact Info */}
           <div className="md:col-span-1 space-y-5">
             <div className="group">
-              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.contactTitle}</HyperText>
+              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} text={t.contactTitle}/>
               <div className="space-y-1 text-slate-600 text-sm">
                 {/* Location */}
                 <p className="flex items-center gap-3 hover:text-blue-600 transition-colors cursor-default">
@@ -258,7 +258,7 @@ const Home = () => {
             </div>
 
             <div className='border-t pt-5'>
-              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.expertiseTitle}</HyperText>
+              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} text={t.expertiseTitle}/>
               <div className="flex flex-wrap gap-2">
                 {content.skillList.map(skill => (
                   <span
@@ -277,7 +277,7 @@ const Home = () => {
             </div>
 
             <div className="border-t border-slate-100 pt-5">
-              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.aboutTitle}</HyperText>
+              <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} text={t.aboutTitle}/>
               <p className="text-slate-600 text-sm leading-relaxed antialiased">
                 {t.aboutDesc}
               </p>
@@ -297,7 +297,7 @@ const Home = () => {
 
           {/* Experience Timeline */}
           <div className="md:col-span-2 space-y-10">
-            <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true}>{t.experienceTitle}</HyperText>
+            <HyperText className="text-lg text-blue-600 uppercase mb-1" animateOnHover={true} text={t.experienceTitle}/>
 
             {/* Delta Electronics Section */}
             <div className="relative pl-8 border-l-2 border-slate-100">
