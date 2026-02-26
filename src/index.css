@@ -164,30 +164,65 @@ body {
 }
 
 @media print {
-  /* บังคับให้พิมพ์สีพื้นหลังและรูปภาพ */
+  /* 1. ตั้งค่าหน้ากระดาษ */
+  @page {
+    size: A4;
+    margin: 10mm; /* เพิ่ม Margin เล็กน้อยเพื่อไม่ให้เนื้อหาชิดขอบกระดาษเกินไป */
+  }
+
+  /* 2. บังคับสีและพื้นหลัง (สำคัญมากสำหรับ Dark Mode) */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  /* ตั้งค่าหน้ากระดาษ A4 */
-  @page {
-    size: A4;
-    margin: 0; /* เราจะไปคุม Padding ในตัว Component แทน */
+  /* 3. จัดการ Layout หลัก */
+  body {
+    zoom: 72%; /* ปรับให้พอดีกับ A4 โดยที่คงความกว้าง Desktop ไว้ */
+    background-color: white !important; /* บังคับพื้นหลังนอกแผ่นเป็นสีขาว */
+    width: 100% !important;
   }
 
-  /* ป้องกันเนื้อหาขาด (Content Splitting) */
-  h1, h2, h3, h4, .group {
-    page-break-after: avoid;
-  }
-  
-  /* จัดการจุดตัดหน้ากระดาษ (ให้ขึ้นหน้าใหม่ในจุดที่เหมาะสม) */
-  .break-before {
-    page-break-before: always;
+  .print-layout {
+    display: block !important;
+    width: 1100px !important; 
+    min-width: 1100px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    /* หากต้องการให้ PDF เป็นสีดำเหมือนหน้าเว็บ ให้เปลี่ยนเป็นสีที่ตั้งใน .dark หรือใช้ชื่อตัวแปร */
+    background-color: var(--background) !important; 
+    color: var(--foreground) !important;
   }
 
-  /* ซ่อนส่วนที่ไม่เกี่ยวข้อง */
-  .fixed, button, nav {
+  /* 4. บังคับให้ Grid และ Flex ไม่ยุบตัว */
+  .grid {
+    display: grid !important;
+  }
+  .flex {
+    display: flex !important;
+  }
+
+  /* 5. จัดการจุดตัดหน้ากระดาษ (Prevent Content Splitting) */
+  /* ป้องกันไม่ให้หัวข้อ หรือบล็อกประสบการณ์การทำงานถูกตัดแบ่งครึ่งหน้า */
+  h1, h2, h4, .group, .relative.pl-8 {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* 6. ซ่อนส่วนประกอบที่ไม่จำเป็น */
+  .fixed, 
+  button, 
+  nav, 
+  .no-print,
+  [role="status"] { /* ซ่อนพวก loading หรือปุ่ม Toggler */
     display: none !important;
+  }
+
+  /* 7. ปรับแต่งส่วนที่ใช้ Magic UI ให้หยุดนิ่งตอน Print */
+  .border-beam, 
+  .aurora-text {
+    animation: none !important;
+    background-image: none !important; /* ป้องกันตัวหนังสือจางตอน Print */
+    color: inherit !important;
   }
 }
